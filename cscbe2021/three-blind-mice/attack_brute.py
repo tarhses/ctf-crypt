@@ -31,10 +31,7 @@ class BruteForce(Thread):
                 s.connect(self.host)
 
                 s.sendall(password)
-
-                data = b' '
-                while data:
-                    data = s.recv(1024)
+                while data := s.recv(1024):
                     if data not in ignore:
                         print(password)
                         print(data)
